@@ -20,13 +20,12 @@ Tab:AddButton({
 	Callback = function()
 local player = game.Players.LocalPlayer.Character
 
-local flingthecar = Instance.new("BodyPosition",player.HumanoidRootPart)
+local flingthecar = Instance.new("BodyVelocity",player.HumanoidRootPart)
 
 player.Humanoid:Destroy()
 wait(0.1)
-flingthecar.D = 0
-flingthecar.P = 10000000
-flingthecar.MaxForce = Vector3.new(0,999999999,999999999)
+flingthecar.MaxForce = Vector3.new(999999999999999999,999999999999999999,999999999999999999)
+flingthecar.Velocity = Vector3.new(0,10,999999999)
   	end    
 })
 
