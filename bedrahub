@@ -1,0 +1,271 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Bloxifier BloxBurg", HidePremium = true, SaveConfig = false, ConfigFolder = "OrionTest"})
+
+--[[
+local Tab2 = Window:MakeTab({
+	Name = "Player Stats (Coming soon black nigger)",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+]]
+
+--[[
+Tab2:AddButton({
+	Name = "mhm",
+	Callback = function()
+
+end  
+})
+]]
+
+local Tab = Window:MakeTab({
+	Name = "Trolling",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddButton({
+	Name = "Vehicle Kick (Must be the driver with people)",
+	Callback = function()
+local player = game.Players.LocalPlayer.Character
+
+local flingthecar = Instance.new("BodyPosition",player.HumanoidRootPart)
+
+player.Humanoid:Destroy()
+wait(0.1)
+flingthecar.D = 0
+flingthecar.P = 10000000
+flingthecar.MaxForce = Vector3.new(0,999999999,999999999)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Vehicle Control (Control people's vehicle)",
+	Callback = function()
+local player = game.Players.LocalPlayer.Character
+
+player.Humanoid.Sit = false
+end  
+})
+
+
+--[[
+Tab:AddButton({
+	Name = "mhm",
+	Callback = function()
+
+end  
+})
+]]
+
+local Tab1 = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab1:AddButton({
+	Name = "Remove Mood effects",
+	Callback = function()
+      		local character = game.Players.LocalPlayer.Character
+local animate = character.Animate
+local de = game.Players.LocalPlayer
+
+game.RunService.Stepped:Connect(function()
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].MoodData:GetChildren()) do
+    if v.Name == "Energy" then
+        v.Value = "inf"
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].MoodData:GetChildren()) do
+    if v.Name == "Hygiene" then
+        v.Value = "inf"
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].MoodData:GetChildren()) do
+    if v.Name == "Fun" then
+        v.Value = "inf"
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].MoodData:GetChildren()) do
+    if v.Name == "Hunger" then
+        v.Value = "inf"
+    end
+end
+
+for i,v in pairs(character.HumanoidRootPart:GetChildren()) do
+    if v:IsA("ParticleEmitter") then
+        v:Destroy()
+    end
+end
+character.Humanoid.WalkSpeed = 16
+wait(0.7)
+end)
+
+animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=507766388"
+animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=507766666"
+--idle
+animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616091570"
+--walk
+animate.walk.walk.AnimationId = "http://www.roblox.com/asset/?id=5319847204"
+--run
+animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=5319816685"
+--climb
+  	end    
+})
+
+Tab1:AddButton({
+	Name = "Anti Block from any plot",
+	Callback = function()
+	    
+spawn(function()
+while wait(1) do
+for i,v in pairs(workspace.Plots:GetDescendants()) do
+    if v.Name == "Barrier" then
+        v:Destroy()
+    end
+end
+end
+end)
+
+end  
+})
+
+Tab1:AddButton({
+	Name = "Max All Skills",
+	Callback = function()
+local de = game.Players.LocalPlayer
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Athletic" then
+        v.Value = 10
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Writing" then
+        v.Value = 10
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Intelligence" then
+        v.Value = 10
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Gardening" then
+        v.Value = 10
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Crafting" then
+        v.Value = 10
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Cooking" then
+        v.Value = 10
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Gaming" then
+        v.Value = 10
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Music" then
+        v.Value = 10
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Painting" then
+        v.Value = 10
+    end
+end
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].SkillData:GetChildren()) do
+    if v.Name == "Programming" then
+        v.Value = 10
+    end
+end
+end 
+})
+
+local Section = Tab1:AddSection({
+	Name = "Gamepasses"
+})
+
+Tab1:AddButton({
+	Name = "Get Radio Gamepass",
+	Callback = function()
+local de = game.Players.LocalPlayer
+
+for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].Gamepasses:GetChildren()) do
+    if v.Name == "1950751" then
+        v.Value = true
+    end
+end
+end  
+})
+
+local Section = Tab1:AddSection({
+	Name = "Automatic Stuff (Soon)"
+})
+
+local Tab3 = Window:MakeTab({
+	Name = "View Stats",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab3:AddTextbox({
+	Name = "View People's Money",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(guy)
+for i,v in pairs(game.ReplicatedStorage.Stats[guy]:GetDescendants()) do
+if v.Name == "Money" then
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = guy .. " Has", -- Required
+	Text = "$" .. v.Value, -- Required
+	Icon = "rbxassetid://231846543" -- Optional
+})
+end
+end
+	end	  
+})
+
+Tab3:AddTextbox({
+	Name = "View People's Blockbux",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(guy)
+for i,v in pairs(game.ReplicatedStorage.Stats[guy]:GetDescendants()) do
+if v.Name == "Blockbux" then
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = guy .. " Has", -- Required
+	Text = "B$" .. v.Value, -- Required
+	Icon = "rbxassetid://231846543" -- Optional
+})
+end
+end
+	end	  
+})
+
+--[[
+Tab1:AddButton({
+	Name = "mhm",
+	Callback = function()
+
+end  
+})
+]]
