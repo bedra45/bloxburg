@@ -227,6 +227,112 @@ local Section = Tab1:AddSection({
 })
 
 local Tab3 = Window:MakeTab({
+	Name = "Vehicle Stats",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab3:AddSection({
+	Name = "IMPORTANT: REDRIVE THE VEHICLE ONCE U CHANGED A VALUE"
+})
+
+Tab3:AddSlider({
+	Name = "ForwardSpeed",
+	Min = 0,
+	Max = 100,
+	Default = 68,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Value",
+	Callback = function(Uhm)
+		
+local VehicleData = require(game.ReplicatedStorage.Modules.VehicleService.VehicleData);
+
+		for i,v in next, VehicleData do 
+			v.ForwardSpeed = Uhm
+		end
+		
+	end    
+})
+
+Tab3:AddSlider({
+	Name = "ReverseSpeed",
+	Min = 0,
+	Max = 100,
+	Default = 30,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Value",
+	Callback = function(Uhm)
+		
+local VehicleData = require(game.ReplicatedStorage.Modules.VehicleService.VehicleData);
+
+		for i,v in next, VehicleData do 
+			v.ReverseSpeed = Uhm
+		end
+		
+	end    
+})
+
+Tab3:AddSlider({
+	Name = "TurnSpeed",
+	Min = 0,
+	Max = 100,
+	Default = 13,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "",
+	Callback = function(Uhm)
+		
+local VehicleData = require(game.ReplicatedStorage.Modules.VehicleService.VehicleData);
+
+		for i,v in next, VehicleData do 
+			v.TurnSpeed = Uhm
+		end
+		
+	end    
+})
+
+Tab3:AddSlider({
+	Name = "SpringLength",
+	Min = 0,
+	Max = 100,
+	Default = 1,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "",
+	Callback = function(Uhm)
+		
+local VehicleData = require(game.ReplicatedStorage.Modules.VehicleService.VehicleData);
+
+		for i,v in next, VehicleData do 
+			v.SpringLength = Uhm
+		end
+		
+	end    
+})
+
+Tab3:AddSlider({
+	Name = "PitchChange",
+	Min = 0,
+	Max = 100,
+	Default = 1,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "",
+	Callback = function(Uhm)
+		
+local VehicleData = require(game.ReplicatedStorage.Modules.VehicleService.VehicleData);
+
+		for i,v in next, VehicleData do 
+			v.PitchChange = Uhm
+		end
+		
+	end    
+})
+
+
+local Tab3 = Window:MakeTab({
 	Name = "View Stats",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
