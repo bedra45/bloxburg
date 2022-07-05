@@ -226,8 +226,27 @@ end
 end  
 })
 
-local Section = Tab1:AddSection({
-	Name = "Automatic Stuff (Soon)"
+local Tab4 = Window:MakeTab({
+	Name = "Tp Stuff",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab4:AddButton({
+	Name = "Tp to my plot",
+	Callback = function()
+remotes["ToPlot"]:InvokeServer({})
+end  
+})
+
+
+Tab4:AddTextbox({
+	Name = "Tp to any plot",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		remotes["ToPlot"]:InvokeServer({["Player"] = game:GetService("Players")[Value]})
+	end	  
 })
 
 local Tab3 = Window:MakeTab({
