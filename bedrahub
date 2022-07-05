@@ -2,13 +2,17 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 local Window = OrionLib:MakeWindow({Name = "Bloxifier BloxBurg", HidePremium = true, SaveConfig = false, ConfigFolder = "OrionTest"})
 
-
---[[local Tab2 = Window:MakeTab({
-	Name = "Player Stats",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-]]
+local DataService = require(game:GetService("ReplicatedStorage").Modules.DataService)
+local hashtable = getupvalue(getupvalue(DataService.InvokeServer, 4),3)
+local remotes = {}
+for i,v in pairs(getreg()) do
+    if type(v) == "function" and getinfo(v).name == "remoteAdded" then 
+        remotefunc = v 
+    end
+end
+for i,v in pairs(getupvalue(getupvalue(remotefunc,2),1)) do
+    remotes[v:gsub("F_", "")] = hashtable[i] --some remotes start with F_ cuz gay
+end
 
 local Tab = Window:MakeTab({
 	Name = "Trolling",
@@ -331,6 +335,74 @@ local VehicleData = require(game.ReplicatedStorage.Modules.VehicleService.Vehicl
 	end    
 })
 
+local Tab2 = Window:MakeTab({
+	Name = "Donate",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab2:AddTextbox({
+	Name = "Donate 1k to someone",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		remotes["Donate"]:FireServer({["Player"] = game:GetService("Players")[Value],["Action"] = "Donate",["Amount"] = 1000})
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Donate 5k to someone",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		remotes["Donate"]:FireServer({["Player"] = game:GetService("Players")[Value],["Action"] = "Donate",["Amount"] = 5000})
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Donate 10k to someone",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		remotes["Donate"]:FireServer({["Player"] = game:GetService("Players")[Value],["Action"] = "Donate",["Amount"] = 10000})
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Donate 20k to someone",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		remotes["Donate"]:FireServer({["Player"] = game:GetService("Players")[Value],["Action"] = "Donate",["Amount"] = 20000})
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Donate 30k to someone",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		remotes["Donate"]:FireServer({["Player"] = game:GetService("Players")[Value],["Action"] = "Donate",["Amount"] = 30000})
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Donate 40k to someone",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		remotes["Donate"]:FireServer({["Player"] = game:GetService("Players")[Value],["Action"] = "Donate",["Amount"] = 40000})
+	end	  
+})
+
+Tab2:AddTextbox({
+	Name = "Donate 50k to someone",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		remotes["Donate"]:FireServer({["Player"] = game:GetService("Players")[Value],["Action"] = "Donate",["Amount"] = 50000})
+	end	  
+})
 
 local Tab3 = Window:MakeTab({
 	Name = "View Stats",
