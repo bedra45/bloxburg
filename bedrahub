@@ -29,7 +29,21 @@ local flingthecar = Instance.new("BodyVelocity",player.HumanoidRootPart)
 player.Humanoid:Destroy()
 wait(0.1)
 flingthecar.MaxForce = Vector3.new(999999999999999999,999999999999999999,999999999999999999)
-flingthecar.Velocity = Vector3.new(0,10000000,999999999)
+flingthecar.Velocity = Vector3.new(0,10000000,9999999999999)
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Vehicle Punish (Punishes people)",
+	Callback = function()
+local player = game.Players.LocalPlayer.Character
+
+local flingthecar = Instance.new("BodyVelocity",player.HumanoidRootPart)
+
+player.Humanoid:Destroy()
+wait(0.1)
+flingthecar.MaxForce = Vector3.new(999999999999999999,999999999999999999,999999999999999999)
+flingthecar.Velocity = Vector3.new(0,9999999999999999999999999,0)
   	end    
 })
 
