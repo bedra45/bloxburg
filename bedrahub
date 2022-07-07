@@ -34,7 +34,7 @@ flingthecar.Velocity = Vector3.new(0,10000000,9999999999999)
 })
 
 Tab:AddButton({
-	Name = "Vehicle Punish (Punishes people)",
+	Name = "Vehicle Punish (Must be the driver with people)",
 	Callback = function()
 local player = game.Players.LocalPlayer.Character
 
