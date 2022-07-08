@@ -222,7 +222,7 @@ game.RunService.RenderStepped:Connect(function()
 end)
 end  
 })
-
+ 
 local Section = Tab1:AddSection({
 	Name = "Gamepasses"
 })
@@ -238,6 +238,29 @@ for i,v in pairs(game.ReplicatedStorage.Stats[de.Name].Gamepasses:GetChildren())
     end
 end
 end  
+})
+
+local Section = Tab1:AddSection({
+	Name = "Character Stuff"
+})
+
+Tab1:AddDropdown({
+	Name = "Set Your Age",
+	Default = "Select Your Age",
+	Options = {"Adult", "Teen", "Kid", "Toddler", "Baby"},
+	Callback = function(Value)
+		if Value == "Adult" then
+        remotes["SetAge"]:InvokeServer({["Value"] = "Adult"})
+		elseif Value == "Teen" then
+		remotes["SetAge"]:InvokeServer({["Value"] = "Teen"})
+		elseif Value == "Kid" then
+		remotes["SetAge"]:InvokeServer({["Value"] = "Kid"})
+		elseif Value == "Toddler" then
+		remotes["SetAge"]:InvokeServer({["Value"] = "Toddler"})
+		elseif Value == "Baby" then
+		remotes["SetAge"]:InvokeServer({["Value"] = "Baby"})
+	  end
+	end    
 })
 
 local Tab4 = Window:MakeTab({
@@ -261,6 +284,41 @@ Tab4:AddTextbox({
 	Callback = function(Value)
 		remotes["ToPlot"]:InvokeServer({["Player"] = game:GetService("Players")[Value]})
 	end	  
+})
+
+
+Tab4:AddDropdown({
+	Name = "Tp to any job",
+	Default = "Select The Job",
+	Options = {"Pizza Delivery", "Hair Dresser", "Mechanic", "Cashier at Bloxy Burgers", "Pizza Baker", "Seller", "Fisherman", "Woodcutter", "Miner", "Cashier at BFF Supermarket", "Stocker", "Janitor"},
+	Callback = function(Value)
+		if Value == "Pizza Delivery" then
+      remotes["ToWork"]:InvokeServer({["Name"] = "PizzaPlanetDelivery"})
+		elseif Value == "Hair Dresser" then
+	  remotes["ToWork"]:InvokeServer({["Name"] = "StylezHairdresser"})
+		elseif Value == "Mechanic" then
+      remotes["ToWork"]:InvokeServer({["Name"] = "MikesMechanic"})  
+		elseif Value == "Cashier at Bloxy Burgers" then
+	  remotes["ToWork"]:InvokeServer({["Name"] = "BloxyBurgersCashier"})
+		elseif Value == "Pizza Baker" then
+      remotes["ToWork"]:InvokeServer({["Name"] = "PizzaPlanetBaker"})
+		elseif Value == "Seller" then
+	  remotes["ToWork"]:InvokeServer({["Name"] = "BensIceCreamSeller"}) 
+		elseif Value == "Fisherman" then
+      remotes["ToWork"]:InvokeServer({["Name"] = "HutFisherman"})  
+		elseif Value == "Woodcutter" then
+	  remotes["ToWork"]:InvokeServer({["Name"] = "LumberWoodcutter"})    
+		elseif Value == "Miner" then
+      remotes["ToWork"]:InvokeServer({["Name"] = "CaveMiner"})
+		elseif Value == "Cashier at BFF Supermarket" then
+	  remotes["ToWork"]:InvokeServer({["Name"] = "SupermarketCashier"})
+		elseif Value == "Stocker" then
+	  remotes["ToWork"]:InvokeServer({["Name"] = "SupermarketStocker"})
+		elseif Value == "Janitor" then
+	  remotes["ToWork"]:InvokeServer({["Name"] = "CleanJanitor"})
+  
+  end
+end    
 })
 
 local Tab3 = Window:MakeTab({
